@@ -1,0 +1,139 @@
+openapi: "3.0.0"
+info:
+  title: "Casino Information API"
+  version: "1.0.0"
+  description: "This is the API documentation for the Casino Information API."
+servers:
+  - url: "https://example.com"
+    description: "Production server"
+  - url: "https://staging.example.com"
+    description: "Staging server"
+paths:
+  /casinos:
+    get:
+      summary: "Get a list of all casinos"
+      responses:
+        200:
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: "The ID of the casino"
+                    name:
+                      type: string
+                      description: "The name of the casino"
+                    location:
+                      type: string
+                      description: "The location of the casino"
+                    games:
+                      type: array
+                      items:
+                        type: string
+                        description: "The name of a game played at the casino"
+  /casinos/{casino_id}:
+    get:
+      summary: "Get details about a specific casino"
+      parameters:
+        - in: path
+          name: casino_id
+          required: true
+          schema:
+            type: integer
+            description: "The ID of the casino"
+      responses:
+        200:
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: "The ID of the casino"
+                  name:
+                    type: string
+                    description: "The name of the casino"
+                  location:
+                    type: string
+                    description: "The location of the casino"
+                  games:
+                    type: array
+                    items:
+                      type: string
+                      description: "The name of a game played at the casino"
+        404:
+          description: "Casino not found"
+  /games:
+    get:
+      summary: "Get a list of all games"
+      responses:
+        200:
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: "The ID of the game"
+                    name:
+                      type: string
+                      description: "The name of the game"
+                    categories:
+                      type: array
+                      items:
+                        type: string
+                        description: "The category of the game"
+                    min_players:
+                      type: integer
+                      description: "The minimum number of players for the game"
+                    max_players:
+                      type: integer
+                      description: "The maximum number of players for the game"
+  /games/{game_id}:
+    get:
+      summary: "Get details about a specific game"
+      parameters:
+        - in: path
+          name: game_id
+          required: true
+          schema:
+            type: integer
+            description: "The ID of the game"
+      responses:
+        200:
+          description: "Successful response"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: "The ID of the game"
+                  name:
+                    type: string
+                    description: "The name of the game"
+                  categories:
+                    type: array
+                    items:
+                      type: string
+                      description: "The category of the game"
+                  min_players:
+                    type: integer
+                    description: "The minimum number of players for the game"
+                  max_players:
+                    type: integer
+                    description: "The maximum number of players for the game"
+        404:
+          description: "Game not found"
