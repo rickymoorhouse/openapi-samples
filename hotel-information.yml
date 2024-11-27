@@ -1,6 +1,5 @@
 openapi: "3.0.0"
 info:
-  title: Hotel API
   version: "1.0"
   description: This is the API documentation for the Hotel service.
 servers:
