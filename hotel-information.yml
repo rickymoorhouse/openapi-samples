@@ -1,6 +1,6 @@
 openapi: "3.0.0"
 info:
-  version: "1.0"
+  title: "Hotel Information"
   description: This is the API documentation for the Hotel service.
 servers:
   - url: https://example.com/api
